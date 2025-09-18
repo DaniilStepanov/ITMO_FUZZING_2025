@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.ow2.asm:asm:9.7'
+    implementation 'com.github.javaparser:javaparser-core:3.26.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs.add("--enable-preview")
+    options.compilerArgs.add("-Xlint:preview")
+//    options.setCompilerArgs("--enable-preview", "-Xlint", "preview")
+}
+
+task agentJar(type: Jar) {
+    archiveBaseName = 'coverage-agent'
+    archiveClassifier = 'agent'
+
+    from sourceSets.main.output
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    manifest {
+        attributes(
+                'Premain-Class': 'org.itmo.fuzzing.lect2.instrumentation.CoverageAgent',
+                'Can-Redefine-Classes': 'true',
+                'Can-Retransform-Classes': 'true'
+        )
+    }
+
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+}

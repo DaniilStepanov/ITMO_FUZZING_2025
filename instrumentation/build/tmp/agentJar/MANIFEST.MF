@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Premain-Class: org.itmo.fuzzing.lect2.instrumentation.CoverageAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+
