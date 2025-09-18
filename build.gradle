@@ -53,7 +53,7 @@ task runWithAgent(type: JavaExec) {
     // Add the Java agent argument
     // Replace 'path/to/your/agent.jar' with the actual path to your Java agent JAR
     jvmArgs += [
-            '-javaagent:/home/zver/IdeaProjects/FuzzingCourseCode2/instrumentation/build/libs/coverage-agent-1.0-SNAPSHOT-agent.jar',
+            '-javaagent:./instrumentation/build/libs/coverage-agent-1.0-SNAPSHOT-agent.jar',
             '--enable-preview'
     ]
 

@@ -1,6 +1,5 @@
 package org.itmo.fuzzing.lect2;
 
-import org.itmo.fuzzing.lab1.MazeMutator;
 
 import java.util.Arrays;
 import java.util.Random;
