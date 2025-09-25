@@ -1,8 +1,9 @@
 package org.itmo.fuzzing.lect2.instrumentation;
 
 import org.objectweb.asm.*;
-import java.lang.instrument.Instrumentation;
+
 import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
 public class CoverageAgent {
@@ -13,7 +14,7 @@ public class CoverageAgent {
             @Override
             public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                                     ProtectionDomain protectionDomain, byte[] classfileBuffer) {
-                if (className.contains("exp4j") && !className.contains("CoverageAgent")) {
+                if (className.contains("org/jsoup") && !className.contains("CoverageAgent")) {
                     return asmTransformClass(className, classfileBuffer);
 //                    return asmTransformClass(className, classfileBuffer);
                 }

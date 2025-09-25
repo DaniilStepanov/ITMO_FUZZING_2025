@@ -1,14 +1,13 @@
 package org.itmo.fuzzing.lect2.instrumentation;
 
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 public class CoverageTracker {
 
-    public static final TreeSet<String> coverage = new TreeSet<String>();
-    public static final TreeSet<String> fullCoverage = new TreeSet<String>();
+    public static final ConcurrentSkipListSet<String> coverage = new ConcurrentSkipListSet<String>();
+    public static final ConcurrentSkipListSet<String> fullCoverage = new ConcurrentSkipListSet<String>();
 
     public static void logCoverage(String methodSignature, String lineNumber) {
         coverage.add(methodSignature + ":" + lineNumber);
