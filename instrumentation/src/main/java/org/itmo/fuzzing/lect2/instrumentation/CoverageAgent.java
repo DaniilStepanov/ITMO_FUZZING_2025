@@ -13,7 +13,7 @@ public class CoverageAgent {
             @Override
             public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                                     ProtectionDomain protectionDomain, byte[] classfileBuffer) {
-                if (className.contains("org/itmo/fuzzing/lect2") && !className.contains("CoverageAgent")) {
+                if (className.contains("exp4j") && !className.contains("CoverageAgent")) {
                     return asmTransformClass(className, classfileBuffer);
 //                    return asmTransformClass(className, classfileBuffer);
                 }

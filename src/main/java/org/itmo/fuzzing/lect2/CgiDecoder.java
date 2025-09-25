@@ -1,10 +1,7 @@
 package org.itmo.fuzzing.lect2;
 
-import org.itmo.fuzzing.lect1.SimpleFuzz;
-import org.itmo.fuzzing.lect2.instrumentation.CoverageAgent;
-import org.itmo.fuzzing.lect2.instrumentation.CoverageTracker;
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CgiDecoder {
 

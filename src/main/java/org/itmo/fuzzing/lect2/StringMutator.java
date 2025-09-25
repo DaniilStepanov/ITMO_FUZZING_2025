@@ -1,7 +1,5 @@
 package org.itmo.fuzzing.lect2;
 
-
-import java.util.Arrays;
 import java.util.Random;
 
 public class StringMutator {

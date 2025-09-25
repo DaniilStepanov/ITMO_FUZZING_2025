@@ -3,11 +3,9 @@ package org.itmo.fuzzing.lect2;
 import org.itmo.fuzzing.lect2.instrumentation.CoverageTracker;
 import org.itmo.fuzzing.lect3.Location;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -15,8 +13,8 @@ public class FunctionRunner {
     private static final String PASS = "PASS";
     private static final String FAIL = "FAIL";
     private final Function<String, Object> function;
-    public TreeSet<String> coverage;
-    public TreeSet<String> fullCoverage;
+    public ConcurrentSkipListSet<String> coverage;
+    public Set<String> fullCoverage;
 
     /**
      * Инициализация.
@@ -44,8 +42,10 @@ public class FunctionRunner {
         return function.apply(inp);
     }
 
-    public Set<Location> getCoverageAsLocations() {
-        return coverage.stream().map(Location::buildFromString).collect(Collectors.toSet());
+    public TreeSet<Location> getCoverageAsLocations() {
+        return coverage.stream()
+                .map(Location::buildFromString)
+                .collect(Collectors.toCollection(TreeSet::new));
     }
 
     /**

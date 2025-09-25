@@ -1,8 +1,10 @@
 package org.itmo.fuzzing.lect3;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
-public class Location {
+public class Location implements Comparable<Location> {
     private String filename;
     private int lineno;
     private String function;
@@ -57,4 +59,23 @@ public class Location {
         result = 31 * result + Objects.hashCode(function);
         return result;
     }
+
+    @Override
+    public int compareTo(@NotNull Location o) {
+        // Сравниваем filename
+        int cmp = this.filename.compareTo(o.filename);
+        if (cmp != 0) {
+            return cmp;
+        }
+
+        // Сравниваем lineno
+        cmp = Integer.compare(this.lineno, o.lineno);
+        if (cmp != 0) {
+            return cmp;
+        }
+
+        // Сравниваем function
+        return this.function.compareTo(o.function);
+    }
+
 }

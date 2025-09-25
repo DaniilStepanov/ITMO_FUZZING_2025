@@ -1,12 +1,9 @@
 package org.itmo.fuzzing.lect2;
 
-import org.itmo.fuzzing.lect1.SimpleFuzz;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class URLValidator {
 
