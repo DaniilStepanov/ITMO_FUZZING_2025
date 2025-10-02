@@ -16,10 +16,10 @@ public class JsoupHTMLParserExample {
         int N = 5_000;
 
         //<html><body><p>Hello</p></body></html>
-        var fuzzer = new GreyBoxFuzzer(
-                Arrays.asList(" "),
+        var fuzzer = new CountingGreyboxFuzzer(
+                Arrays.asList("<html><body><p>Hello</p></body></html>"),
                 new FuzzMutator(),
-                new PowerSchedule(),
+                new AFLFastSchedule(5.0),
                 1,
                 5
         );

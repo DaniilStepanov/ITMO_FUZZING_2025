@@ -4,6 +4,7 @@ import org.itmo.fuzzing.lect2.FunctionRunner;
 import org.itmo.fuzzing.lect9.FuzzMutator;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class CrashMeFuzzer {
 
@@ -31,7 +32,7 @@ public class CrashMeFuzzer {
 //        System.out.println(advancedFuzzer.fuzz());
 //        System.exit(0);
 
-        int N = 30_000;
+        int N = 10_000;
 //        var startTime = System.currentTimeMillis();
 //        advancedFuzzer.fuzz(crashMeRunner, N);
 //        var endTime = System.currentTimeMillis();
@@ -42,7 +43,7 @@ public class CrashMeFuzzer {
 //
 //        System.exit(0);
 
-
+//
 //        var greyBoxFuzzer = new GreyBoxFuzzer(
 //                Arrays.asList("good"),
 //                new FuzzMutator(),
@@ -58,7 +59,7 @@ public class CrashMeFuzzer {
 //        System.out.println("Time taken: " + (endTime - startTime));
 //        System.exit(0);
 
-
+//
         var countingFuzzer = new CountingGreyboxFuzzer(
                 Arrays.asList("good"),
                 new FuzzMutator(),
