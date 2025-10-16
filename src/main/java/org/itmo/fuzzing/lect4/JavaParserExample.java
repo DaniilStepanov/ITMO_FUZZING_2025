@@ -16,9 +16,9 @@ public class JavaParserExample {
 //            String pathToSrc = "src/main/java/org/itmo/fuzzing/lect4/Triangle.java";
             String pathToSrc = "src/main/java/org/itmo/fuzzing/lect4/TriangleCalculator.java";
             File file = new File(pathToSrc);
-
+//
             CompilationUnit compilationUnit = StaticJavaParser.parse(file);
-
+//
             Mutator binaryExprMutator = new BinaryExprMutator(-1);
             var methods = compilationUnit.findAll(MethodDeclaration.class);
             var method = methods.get(0);
@@ -35,7 +35,7 @@ public class JavaParserExample {
 
             System.exit(0);
 
-
+//
 //            Mutator returnMutator = new ReturnMutator(-1);
 //            var methods = compilationUnit.findAll(MethodDeclaration.class);
 //            var method = methods.get(0);
@@ -46,7 +46,7 @@ public class JavaParserExample {
 //                System.out.println(mutant.src);
 //                System.out.println("------------_");
 //            }
-//            String oracleName ="org.itmo.fuzzing.lect4.WeakOracle";
+//            String oracleName ="org.itmo.fuzzing.lect4.StrongOracle";
 //            double score = analyzer.executeMutants(oracleName);
 //            System.out.println("Score for " + oracleName + " = " + score);
 
