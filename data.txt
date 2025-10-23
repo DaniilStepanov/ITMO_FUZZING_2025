@@ -1,0 +1,24 @@
+# Информация о человеке
+person {
+  name: "John Doe"
+  age: 30
+  is_student: false
+  hobbies: ["reading", "gaming", "hiking"]
+}
+
+# Информация о компании
+company {
+  name: "OpenAI"
+  employees {
+    count: 500
+    roles: ["Engineer", "Researcher", "Manager"]
+    active: true
+  }
+}
+
+# Аннотации
+@description: "This block contains personal information."
+contact {
+  email: "john.doe@example.com"
+  phone: "123-456-7890"
+}
