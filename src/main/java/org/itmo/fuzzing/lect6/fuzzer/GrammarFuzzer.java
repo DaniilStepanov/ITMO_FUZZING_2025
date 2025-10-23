@@ -25,7 +25,7 @@ public class GrammarFuzzer {
     protected final boolean disp;
     protected final boolean log;
     protected final Random random = new Random();
-    public Function<DerivationTreeNode, DerivationTreeNode> expandNodeMethod = this::expandNodeRandomly;
+    public Function<DerivationTreeNode, DerivationTreeNode> expandNodeMethod = this::expandNodeMinCost;
 
     public GrammarFuzzer(BetterGrammar grammar, String startSymbol, int minNonterminals, int maxNonterminals, boolean disp, boolean log) {
         this.grammar = grammar;
@@ -236,7 +236,7 @@ public class GrammarFuzzer {
         }
 
         if (symbols.stream().anyMatch(seen::contains)) {
-            return Short.MAX_VALUE; // equivalent to Python's float('inf')
+            return Short.MAX_VALUE;
         }
 
         return symbols.stream()

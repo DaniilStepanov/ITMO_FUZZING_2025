@@ -18,25 +18,27 @@ public class GrammarFuzzerTest {
         var fuzzer = new GrammarFuzzer(grammar);
 //        var expansion = new Expansion("<term> + <expr>");
 //        fuzzer.expansionToChildren(expansion).forEach(System.out::println);
-
 //        var node = new DerivationTreeNode("<integer>", null);
 //        var expanded = fuzzer.expandNodeRandomly(node);
 //        System.out.println(expanded);
+
 //
 //        var digitNode = new DerivationTreeNode("<digit>", null);
 //        var expandedDigit = fuzzer.expandNodeRandomly(digitNode);
 //        System.out.println(expandedDigit);
 
         var tree = createSimpleDerivationTree();
-        var expandedOnce = new DerivationTree(fuzzer.expandTreeOnce(tree.getRoot()));
-        DerivationTreePrinter.printTree(expandedOnce);
-        System.out.println("-----------");
+//        var expandedOnce = new DerivationTree(fuzzer.expandTreeOnce(tree.getRoot()));
 //        DerivationTreePrinter.printTree(expandedOnce);
+//        System.out.println("-----------");
+//        DerivationTreePrinter.printTree(fuzzer.expandTreeOnce(expandedOnce.getRoot()));
 //        System.out.println("----------");
 //        var expandedTwice = new DerivationTree(fuzzer.expandTreeOnce(expandedOnce.getRoot()));
 //        DerivationTreePrinter.printTree(expandedTwice);
 
 //        System.out.println(fuzzer.symbolCost("<expr>", Set.of()));
+//        DerivationTreePrinter.printTree(tree);
+//        System.out.println("-------------");
 //        var expandedByMinCost = new DerivationTree(fuzzer.expandTreeOnce(tree.getRoot()));
 //        while (fuzzer.anyPossibleExpansions(expandedByMinCost.getRoot())) {
 //            expandedByMinCost = new DerivationTree(fuzzer.expandTreeOnce(expandedByMinCost.getRoot()));
@@ -44,11 +46,12 @@ public class GrammarFuzzerTest {
 //            System.out.println("---------------");
 //        }
 //        System.out.println(expandedByMinCost.treeToString());
+//        System.exit(0);
 
-        var expanded = fuzzer.expandTree(tree);
-        DerivationTreePrinter.printTree(expanded);
-        System.out.println("-----------");
-        System.out.println(expanded.treeToString());
+//        var expanded = fuzzer.expandTree(tree);
+//        DerivationTreePrinter.printTree(expanded);
+//        System.out.println("-----------");
+//        System.out.println(expanded.treeToString());
     }
 
 
