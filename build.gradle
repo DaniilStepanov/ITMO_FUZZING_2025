@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
 }
 
 group = 'org.example'
@@ -10,13 +9,18 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation project(':instrumentation')
     implementation 'org.ow2.asm:asm:9.7'
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.18.1'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'com.github.javaparser:javaparser-core:3.26.2'
     implementation 'guru.nidi:graphviz-java:0.18.1'
     implementation("org.antlr:antlr4-runtime:4.13.1")
@@ -27,9 +31,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-kotlin {
-    jvmToolchain(22)
-}
+
 
 
 // Define a custom task to run your application with a Java agent
@@ -40,7 +42,7 @@ task runWithAgent(type: JavaExec) {
 
     // Set the main class
 //    setMainClass("org.itmo.fuzzing.lect2.CgiDecoder")
-    setMainClass("org.itmo.fuzzing.lect2.MutationCoverageFuzzer")
+    setMainClass("org.itmo.fuzzing.lab1.MazeRunner")
 
     // Set the classpath
     classpath = sourceSets.main.runtimeClasspath

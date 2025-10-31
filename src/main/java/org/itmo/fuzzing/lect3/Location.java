@@ -1,6 +1,5 @@
 package org.itmo.fuzzing.lect3;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -61,7 +60,7 @@ public class Location implements Comparable<Location> {
     }
 
     @Override
-    public int compareTo(@NotNull Location o) {
+    public int compareTo(Location o) {
         // Сравниваем filename
         int cmp = this.filename.compareTo(o.filename);
         if (cmp != 0) {
